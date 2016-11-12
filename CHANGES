@@ -7,6 +7,7 @@ Version 8.11 (Unreleased)
 - Improved UI for password and API key fields used in integrations
 - Fixed bug where API responses would include incorrect `isSubscribed` values for issues.
 - Added support for switching to unsymbolicated tracebacks in cocoa.
+- Added support for recording symbols separately in frames independent of the function.
 
 Version 8.10
 ------------
