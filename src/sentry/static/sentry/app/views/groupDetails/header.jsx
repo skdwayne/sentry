@@ -1,6 +1,5 @@
 import React from 'react';
-// import Router from "react-router";
-import {Link, History} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 import ApiMixin from '../../mixins/apiMixin';
 import AssigneeSelector from '../../components/assigneeSelector';
 import Count from '../../components/count';
@@ -25,8 +24,7 @@ const GroupHeader = React.createClass({
 
   mixins: [
     ApiMixin,
-    ProjectState,
-    History
+    ProjectState
   ],
 
   onToggleMute() {
@@ -51,7 +49,7 @@ const GroupHeader = React.createClass({
 
   onShare() {
     let {shareId} = this.props.group;
-    return this.history.pushState(null, `/share/issue/${shareId}/`);
+    return browserHistory.pushState(null, `/share/issue/${shareId}/`);
   },
 
   onTogglePublic() {

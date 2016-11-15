@@ -8,6 +8,16 @@ const ReleaseAllEvents = React.createClass({
     release: React.PropTypes.object
   },
 
+  childContextTypes: {
+    location: React.PropTypes.object
+  },
+
+  getChildContext() {
+    return {
+      location: this.props.location
+    };
+  },
+
   render() {
     let {orgId, projectId} = this.props.params;
     return (

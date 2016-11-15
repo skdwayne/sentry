@@ -1,6 +1,6 @@
 import jQuery from 'jquery';
 import React from 'react';
-import {History, Link} from 'react-router';
+import {browserHistory, Link} from 'react-router';
 import ApiMixin from '../mixins/apiMixin';
 import Avatar from '../components/avatar';
 import GroupStore from '../stores/groupStore';
@@ -19,10 +19,7 @@ const ProjectUserReports = React.createClass({
     setProjectNavSection: React.PropTypes.func
   },
 
-  mixins: [
-    ApiMixin,
-    History,
-  ],
+  mixins: [ApiMixin],
 
   getDefaultProps() {
     return {
@@ -76,7 +73,7 @@ const ProjectUserReports = React.createClass({
       targetQueryParams.status = this.state.status;
 
     let {orgId, projectId} = this.props.params;
-    this.history.pushState(null, `/${orgId}/${projectId}/user-feedback/`, targetQueryParams);
+    browserHistory.pushState(null, `/${orgId}/${projectId}/user-feedback/`, targetQueryParams);
   },
 
   fetchData() {

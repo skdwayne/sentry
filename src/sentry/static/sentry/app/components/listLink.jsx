@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'underscore';
-import {Link, History} from 'react-router';
+import {Link} from 'react-router';
 import classNames from 'classnames';
 
 const ListLink = React.createClass({
@@ -19,7 +19,9 @@ const ListLink = React.createClass({
     isActive: React.PropTypes.func
   },
 
-  mixins: [History],
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
 
   getDefaultProps() {
     return {
@@ -29,7 +31,7 @@ const ListLink = React.createClass({
   },
 
   isActive() {
-    return (this.props.isActive || this.history.isActive)(
+    return (this.props.isActive || this.context.router.isActive)(
       this.props.to, this.props.query, this.props.index
     );
   },
